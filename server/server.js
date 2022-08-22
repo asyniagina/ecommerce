@@ -3,6 +3,7 @@ import path from 'path'
 import cors from 'cors'
 import sockjs from 'sockjs'
 import cookieParser from 'cookie-parser'
+import { readFile } from 'fs/promises'
 
 import config from './config'
 import Html from '../client/html'
@@ -25,10 +26,19 @@ const middleware = [
 middleware.forEach((it) => server.use(it))
 
 server.get('/', (req, res) => {
-  res.send(`
-    <h2>This is SkillCrucial Express Server!</h2>
-    <h3>Client hosted at <a href="http://localhost:8087">localhost:8087</a>!</h3>
-  `)
+  res.send('Express server')
+})
+
+server.get('/api/v1/products', async (req, res) => {
+  const arrayOfProducts = await readFile(`${__dirname}/data/data.json`, 'utf-8')
+    .then((data) => {
+      return JSON.parse(data)
+    })
+    .catch((error) => {
+      console.log(error);
+      return [];
+  })
+  res.json(arrayOfProducts.slice(50))
 })
 
 server.get('/*', (req, res) => {
