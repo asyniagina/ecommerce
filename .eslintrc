@@ -41,6 +41,7 @@
       "unnamedComponents": "arrow-function"
     }],
     "prettier/prettier": ["warn"],
+    "default-param-last": 0,
     "space-before-function-paren": "off",
     "react/prefer-stateless-function": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
