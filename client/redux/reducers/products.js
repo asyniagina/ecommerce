@@ -1,5 +1,3 @@
-import { json } from "express"
-
 const GET_PRODUCTS = '@products/GET_PRODUCTS'
 
 const initialState = {
@@ -19,9 +17,10 @@ export default (state = initialState, action) => {
     }
 }
 
-const getProductsFromServer = () => {
-    return (dispatch, getState) => {
+export const getProductsFromServer = () => {
+    return (dispatch) => {
         fetch('/api/v1/products')
         .then((data) => data.json())
+        .then((product) => dispatch({ type: GET_PRODUCTS, payload: product }))
     }
 }
