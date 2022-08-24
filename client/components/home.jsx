@@ -6,7 +6,7 @@ import Products from './products'
 
 const Home = () => {
   return (
-    <div className="flex justify-center p4 bg-gray-600">
+    <div className="flex flex-col">
       <Head title="Main" />
       <Header caption="ECommerce Shop" />
       <Products />

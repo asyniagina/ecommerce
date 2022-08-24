@@ -22,5 +22,6 @@ export const getProductsFromServer = () => {
         fetch('/api/v1/products')
         .then((data) => data.json())
         .then((product) => dispatch({ type: GET_PRODUCTS, payload: product }))
+        .catch((error) => console.log(error))
     }
 }

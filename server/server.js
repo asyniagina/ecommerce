@@ -39,7 +39,7 @@ server.get('/api/v1/products', async (req, res) => {
       console.log(error)
       return []
   })
-  res.json(arrayOfProducts.slice(50))
+  res.json(arrayOfProducts.slice(0,50))
 })
 
 const url = 'https://api.exchangerate.host/latest?base=USD&symbols=USD,EUR,CAD'

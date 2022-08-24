@@ -11,7 +11,7 @@ const Products = () => {
         dispatch(getProductsFromServer())
     })
     return (
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap space-x-2 m-2">
             {
                 productList.map((prod) => <ProductCard key={prod.id} product={prod} />)
             }
